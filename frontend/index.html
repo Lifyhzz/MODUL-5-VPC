@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Frontend</title></head>
+<body>
+  <h1>Frontend Website</h1>
+  <p id="data">Loading...</p>
+  <script>
+    fetch("http://10.0.2.X:8080/api/data")  // Ganti 10.0.2.X dgn IP privat backend
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("data").innerText = data.message;
+      })
+      .catch(err => {
+        document.getElementById("data").innerText = "Gagal mengambil data dari backend.";
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
